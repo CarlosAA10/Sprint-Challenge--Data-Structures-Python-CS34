@@ -17,17 +17,17 @@ class RingBuffer:
 
         if len(self.list) < self.capacity:
             self.list.append(item)
-            self.current += 1
+            # self.current += 1
+
+        elif self.current == self.capacity:
+
+            self.current = 0
+            self.list[self.current] = item
+            # self.current += 1
+
         else:
-            if self.current == self.capacity:
-
-                self.current = 0
-                self.list[self.current] = item
-                self.current += 1
-
-            else:
-                self.list[self.current] = item
-                self.current += 1 # lol i forgot to increment here 
+            self.list[self.current] = item
+        self.current += 1 # lol i forgot to increment here 
 
         
 
